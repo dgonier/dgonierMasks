@@ -9,10 +9,11 @@ CLASSES = {
 
 const video = document.getElementById('video');
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
-        video.srcObject = stream
-        video.play();
-    });
+  navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
+    video.srcObject = stream
+    video.play();
+  });
+}
 
 const MODEL_PATH =
     'model.json';
