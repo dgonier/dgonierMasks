@@ -209,4 +209,4 @@ window.setInterval(function(){
   var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
   let input = canvas.toDataURL("image/png")
   demo(input)
-}, 1000)
+}, 3000)
