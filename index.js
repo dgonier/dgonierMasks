@@ -36,6 +36,9 @@ const demo = async (img) => {
 
   my_model = await tf.loadLayersModel(MODEL_PATH);
 
+  status("loaded model")
+  console.log(my_model)
+
   // Warmup the model. This isn't necessary, but makes the first prediction
   // faster. Call `dispose` to release the WebGL memory allocated for the return
   // value of `predict`.
