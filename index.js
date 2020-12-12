@@ -67,7 +67,7 @@ const demo = async (img) => {
  */
 async function predict(imgElement) {
   status('Predicting...');
-
+  console.log(imgElement)
   // The first start time includes the time it takes to extract the image
   // from the HTML and preprocess it, in additon to the predict() call.
   const startTime1 = performance.now();
@@ -210,5 +210,5 @@ window.setInterval(function(){
   let input = canvas.toDataURL("image/jpg")
   let img = document.getElementById('cat');
   img.src = input;
-  predict(img)
+  demo(img)
 }, 3000)
