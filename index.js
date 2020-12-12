@@ -207,6 +207,6 @@ const predictionsElement = document.getElementById('predictions');
 window.setInterval(function(){
   console.log('hi')
   var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
-  let input = canvas.toDataURL("image/png")
+  let input = canvas.toDataURL("image/jpg")
   demo(input)
 }, 3000)
