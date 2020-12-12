@@ -8,12 +8,24 @@ CLASSES = {
 
 
 const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const captures = []
+
+function passImageToModel(video){
+        var context = this.canvas.getContext("2d").drawImage(this.video, 0, 0, 640, 480);
+        captures.push(canvas.toDataURL("image/png"));
+        console.log(captures)
+}
+
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
     video.srcObject = stream
+    setInterval(passImageToModel(video), 5000);
     video.play();
   });
 }
+
+
 
 const MODEL_PATH =
     'model.json';
