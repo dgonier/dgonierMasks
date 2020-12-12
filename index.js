@@ -211,6 +211,6 @@ window.setInterval(function(){
   let img = document.createElement('img');
   img.style.width = '192px';
   img.style.height = '192px';
-  img.srcObject = input;
+  img.src = input;
   predict(img)
 }, 3000)
