@@ -13,8 +13,8 @@ const captures = []
 
 function passImageToModel(video){
         var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
-        captures.push(canvas.toDataURL("image/png"));
-        console.log(captures)
+        let input = canvas.toDataURL("image/png")
+        console.log(input)
 }
 
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -24,10 +24,10 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   });
 }
 
-setInterval(passImageToModel(video), 5000)
-window.setInterval(function(){
-  console.log('hi')
-}, 1000)
+window.setInterval(passImageToModel(video), 1000)
+// window.setInterval(function(){
+//   console.log('hi')
+// }, 1000)
 
 
 
