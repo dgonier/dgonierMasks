@@ -6,6 +6,14 @@ CLASSES = {
   4: 'class4',
 };
 
+
+const video = document.getElementById('video');
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
+        this.video.srcObject = stream
+        this.video.play();
+    });
+
 const MODEL_PATH =
     'model.json';
 
