@@ -20,7 +20,6 @@ function passImageToModel(video){
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
     video.srcObject = stream
-    setInterval(passImageToModel(video), 5000);
     video.play();
   });
 }
