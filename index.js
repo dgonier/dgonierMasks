@@ -10,8 +10,8 @@ CLASSES = {
 const video = document.getElementById('video');
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
-        this.video.srcObject = stream
-        this.video.play();
+        video.srcObject = stream
+        video.play();
     });
 
 const MODEL_PATH =
