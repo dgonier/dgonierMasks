@@ -208,5 +208,9 @@ window.setInterval(function(){
   console.log('hi')
   var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
   let input = canvas.toDataURL("image/jpg")
-  predict(input)
+  let img = document.createElement('img');
+  img.style.width = '192px';
+  img.style.height = '192px';
+  img.srcObject = input;
+  predict(img)
 }, 3000)
