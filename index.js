@@ -22,12 +22,15 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     video.srcObject = stream
     video.play();
   });
+
 }
 
-window.setInterval(passImageToModel(), 1000)
+// window.setInterval(passImageToModel(), 1000)
 window.setInterval(function(){
   console.log('hi')
-  console.log(video)
+        var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
+        let input = canvas.toDataURL("image/png")
+  console.log(input)
 }, 1000)
 
 
