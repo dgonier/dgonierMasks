@@ -25,6 +25,9 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 }
 
 setInterval(passImageToModel(video), 5000)
+setInterval(function(){
+  console.log('hi')
+}, 1000)
 
 
 
