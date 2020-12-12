@@ -25,14 +25,6 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 }
 
-// window.setInterval(passImageToModel(), 1000)
-window.setInterval(function(){
-  console.log('hi')
-        var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
-        let input = canvas.toDataURL("image/png")
-  console.log(input)
-}, 1000)
-
 
 
 const MODEL_PATH =
@@ -42,7 +34,7 @@ const IMAGE_SIZE = 192;
 const TOPK_PREDICTIONS = 5;
 
 let my_model;
-const demo = async () => {
+const demo = async (img) => {
   status('Loading model...');
 
   my_model = await tf.loadLayersModel(MODEL_PATH);
@@ -55,7 +47,7 @@ const demo = async () => {
   status('');
 
   // Make a prediction through the locally hosted cat.jpg.
-  const catElement = document.getElementById('cat');
+  const catElement = img
   if (catElement.complete && catElement.naturalHeight !== 0) {
     predict(catElement);
     catElement.style.display = '';
@@ -208,5 +200,13 @@ const demoStatusElement = document.getElementById('status');
 const status = msg => demoStatusElement.innerText = msg;
 
 const predictionsElement = document.getElementById('predictions');
+//
+// demo();
 
-demo();
+// window.setInterval(passImageToModel(), 1000)
+window.setInterval(function(){
+  console.log('hi')
+  var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
+  let input = canvas.toDataURL("image/png")
+  demo(input)
+}, 1000)
