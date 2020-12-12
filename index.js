@@ -11,7 +11,7 @@ const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const captures = []
 
-function passImageToModel(video){
+function passImageToModel(){
         var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
         let input = canvas.toDataURL("image/png")
         console.log(input)
@@ -24,7 +24,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   });
 }
 
-window.setInterval(passImageToModel(video), 1000)
+window.setInterval(passImageToModel(), 1000)
 // window.setInterval(function(){
 //   console.log('hi')
 // }, 1000)
