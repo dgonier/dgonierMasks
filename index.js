@@ -206,14 +206,20 @@ const predictionsElement = document.getElementById('predictions');
 // window.setInterval(passImageToModel(), 1000)
 
 const loadModel = async () => {
-  const model = await tf.loadLayersModel('./model.json');
+const model = await tf.loadLayersModel('./model.json');
 const webcamElement = document.getElementById('video');
 const webcam = await tf.data.webcam(webcamElement);
-const img = await webcam.capture();
-const result = await model.predict(img);
+model.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
+
 while (true) {
-    const img = await webcam.capture();
-    const result = await net.classify(img);
+    let img = await webcam.capture();
+    const imgPixels = tf.browser.fromPixels(img).toFloat();
+    const normalized = imgPixels.div(255.0);
+
+    // Reshape to a single-element batch so we can pass it to predict.
+    const batched = normalized.reshape([1, IMAGE_SIZE, IMAGE_SIZE, 3]);
+
+    const result = await model.predict(batched);
 
     document.getElementById('console').innerText = `
       prediction: ${result[0].className}\n
