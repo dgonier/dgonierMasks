@@ -216,13 +216,15 @@ const sleep = m => new Promise(r => setTimeout(r, m))
 
 
 while (noMask) {
-    var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
+    var context = canvas.getContext("2d").drawImage(webcamElement, 0, 0, 640, 480);
     let input = canvas.toDataURL("image/jpg")
     let img = document.getElementById('imageInput');
     img.width = IMAGE_SIZE;
     img.height = IMAGE_SIZE;
     img.src = input;
-    const imgPixels = tf.browser.fromPixels(img).toFloat();
+
+    // const imgPixels = tf.browser.fromPixels(img).toFloat();
+    const imgPixels = tf.fromPixels(webcamElement).toFloat();
     const normalized = imgPixels.div(255.0);
 
     // Reshape to a single-element batch so we can pass it to predict.
