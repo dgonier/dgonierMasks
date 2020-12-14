@@ -204,8 +204,6 @@ const predictionsElement = document.getElementById('predictions');
 // demo();
 
 // window.setInterval(passImageToModel(), 1000)
-import * as tf from '@tensorflow/tfjs';
-
 const model = await tf.loadLayersModel('./model.json');
 const webcamElement = document.getElementById('video');
 const webcam = await tf.data.webcam(webcamElement);
