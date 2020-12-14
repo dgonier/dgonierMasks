@@ -212,7 +212,7 @@ const loadModel = async () => {
   model.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
 }
 
-const predict = async () => {
+const makePrediction = async () => {
 
     var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
     let input = canvas.toDataURL("image/jpg")
@@ -236,7 +236,7 @@ const predict = async () => {
 }
 
 loadModel()
-window.setTimeout(predict(), 1000)
+window.setTimeout(makePrediction(), 1000)
 
 
 // todo note change to setInterval
