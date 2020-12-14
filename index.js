@@ -223,8 +223,8 @@ while (noMask) {
     img.height = IMAGE_SIZE;
     img.src = input;
 
-    // const imgPixels = tf.browser.fromPixels(img).toFloat();
-    const imgPixels = tf.fromPixels(webcamElement).toFloat();
+    const imgPixels = tf.browser.fromPixels(webcamElement).toFloat();
+    // const imgPixels = tf.fromPixels(webcamElement).toFloat();
     const normalized = imgPixels.div(255.0);
 
     // Reshape to a single-element batch so we can pass it to predict.
