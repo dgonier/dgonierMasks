@@ -209,7 +209,7 @@ const loadModel = async () => {
 const model = await tf.loadLayersModel('./model.json');
 const webcamElement = document.getElementById('video');
 const webcam = await tf.data.webcam(webcamElement);
-model.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
+// model.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
 
 let noMask = true
 const sleep = m => new Promise(r => setTimeout(r, m))
