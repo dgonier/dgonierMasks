@@ -204,7 +204,9 @@ const predictionsElement = document.getElementById('predictions');
 // demo();
 
 // window.setInterval(passImageToModel(), 1000)
-const model = await tf.loadLayersModel('./model.json');
+
+const loadModel = async () => {
+  const model = await tf.loadLayersModel('./model.json');
 const webcamElement = document.getElementById('video');
 const webcam = await tf.data.webcam(webcamElement);
 const img = await webcam.capture();
@@ -224,7 +226,11 @@ while (true) {
     // Give some breathing room by waiting for the next animation frame to
     // fire.
     await tf.nextFrame();
+  }
 }
+
+loadModel()
+
 
 
 
