@@ -204,7 +204,9 @@ const predictionsElement = document.getElementById('predictions');
 // demo();
 
 // window.setInterval(passImageToModel(), 1000)
+import * as tf from '@tensorflow/tfjs';
 
+const model = await tf.loadLayersModel('https://foo.bar/tfjs_artifacts/model.json');
 
 // todo note change to setInterval
 window.setTimeout(function(){
