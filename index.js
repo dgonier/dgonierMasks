@@ -233,7 +233,7 @@ while (noMask) {
     const result = await model.predict(batched);
     const probs = result.dataSync()
 
-    if (probs[0] > 0.8) {
+    if (probs[0] > 0.95) {
       noMask = false
     }
     // console.log(result)
