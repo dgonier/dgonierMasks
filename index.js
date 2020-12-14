@@ -225,8 +225,13 @@ while (true) {
     const batched = normalized.reshape([1, IMAGE_SIZE, IMAGE_SIZE, 3]);
 
     const result = await model.predict(batched);
-    console.log(result)
+    const probs = result.dataSync()
+    // console.log(result)
     console.log(result.dataSync())
+
+    document.getElementById('console').innerText = `
+      ${probs[0]}% of wearing mask
+    `
 
     // document.getElementById('console').innerText = `
     //   prediction: ${result[0].className}\n
@@ -234,7 +239,7 @@ while (true) {
     // `;
     // status(`${result[0].className}`)
     // Dispose the tensor to release the memory.
-    img.dispose();
+    // img.dispose();
 
     // Give some breathing room by waiting for the next animation frame to
     // fire.
