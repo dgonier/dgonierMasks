@@ -210,9 +210,10 @@ const loadModel = async () => {
   const webcamElement = document.getElementById('video');
   const webcam = await tf.data.webcam(webcamElement);
   model.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
+  return model
 }
 
-const makePrediction = async () => {
+const makePrediction = async (model) => {
 
     var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
     let input = canvas.toDataURL("image/jpg")
@@ -235,8 +236,7 @@ const makePrediction = async () => {
       ${probs[0]}% of wearing mask`
 }
 
-loadModel()
-window.setTimeout(makePrediction(), 1000)
+window.setTimeout(makePrediction(loadModel()), 1000)
 
 
 // todo note change to setInterval
