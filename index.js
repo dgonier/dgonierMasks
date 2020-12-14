@@ -226,6 +226,7 @@ while (true) {
 
     const result = await model.predict(batched);
     console.log(result)
+    console.log(result.dataSync())
 
     // document.getElementById('console').innerText = `
     //   prediction: ${result[0].className}\n
