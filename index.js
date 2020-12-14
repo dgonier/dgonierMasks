@@ -227,10 +227,10 @@ while (true) {
     const result = await model.predict(batched);
     console.log(result)
 
-    document.getElementById('console').innerText = `
-      prediction: ${result[0].className}\n
-      probability: ${result[0].probability}
-    `;
+    // document.getElementById('console').innerText = `
+    //   prediction: ${result[0].className}\n
+    //   probability: ${result[0].probability}
+    // `;
     // status(`${result[0].className}`)
     // Dispose the tensor to release the memory.
     img.dispose();
