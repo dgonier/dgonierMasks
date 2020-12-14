@@ -213,7 +213,8 @@ model.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
 
 while (true) {
     let img = await webcam.capture();
-    const imgPixels = tf.browser.fromPixels(img).toFloat();
+    webcamElement.src = img.toDataURL("image/jpg")
+    const imgPixels = tf.browser.fromPixels(webcamElement).toFloat();
     const normalized = imgPixels.div(255.0);
 
     // Reshape to a single-element batch so we can pass it to predict.
