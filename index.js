@@ -1,4 +1,4 @@
-CLASSES = {
+let CLASSES = {
   0: 'Wearing Mask',
   1: 'Not Wearing Mask',
 };
@@ -206,14 +206,36 @@ const predictionsElement = document.getElementById('predictions');
 // window.setInterval(passImageToModel(), 1000)
 import * as tf from '@tensorflow/tfjs';
 
-const model = await tf.loadLayersModel('https://foo.bar/tfjs_artifacts/model.json');
+const model = await tf.loadLayersModel('./model.json');
+const webcamElement = document.getElementById('video');
+const webcam = await tf.data.webcam(webcamElement);
+const img = await webcam.capture();
+const result = await model.predict(img);
+while (true) {
+    const img = await webcam.capture();
+    const result = await net.classify(img);
+
+    document.getElementById('console').innerText = `
+      prediction: ${result[0].className}\n
+      probability: ${result[0].probability}
+    `;
+    status(${result[0].className})
+    // Dispose the tensor to release the memory.
+    img.dispose();
+
+    // Give some breathing room by waiting for the next animation frame to
+    // fire.
+    await tf.nextFrame();
+}
+
+
 
 // todo note change to setInterval
-window.setTimeout(function(){
-  console.log('hi')
-  var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
-  let input = canvas.toDataURL("image/jpg")
-  let img = document.getElementById('cat');
-  img.src = input;
-  demo(img)
-}, 3000)
+// window.setTimeout(function(){
+//   console.log('hi')
+//   var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
+//   let input = canvas.toDataURL("image/jpg")
+//   let img = document.getElementById('cat');
+//   img.src = input;
+//   demo(img)
+// }, 3000)
