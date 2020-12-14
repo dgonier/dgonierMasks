@@ -225,6 +225,7 @@ while (true) {
     const batched = normalized.reshape([1, IMAGE_SIZE, IMAGE_SIZE, 3]);
 
     const result = await model.predict(batched);
+    console.log(result)
 
     document.getElementById('console').innerText = `
       prediction: ${result[0].className}\n
