@@ -212,6 +212,8 @@ const webcam = await tf.data.webcam(webcamElement);
 model.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
 
 let noMask = true
+const sleep = m => new Promise(r => setTimeout(r, m))
+
 
 while (noMask) {
     var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
@@ -249,7 +251,7 @@ while (noMask) {
 
     // Give some breathing room by waiting for the next animation frame to
     // fire.
-    await timeout(1000);
+    await sleep(1000);
     // await tf.nextFrame();
   }
 }
