@@ -204,7 +204,10 @@ const predictionsElement = document.getElementById('predictions');
 // demo();
 
 // window.setInterval(passImageToModel(), 1000)
-window.setInterval(function(){
+
+
+// todo note change to setInterval
+window.setTimeout(function(){
   console.log('hi')
   var context = canvas.getContext("2d").drawImage(video, 0, 0, 640, 480);
   let input = canvas.toDataURL("image/jpg")
