@@ -219,7 +219,7 @@ while (true) {
       prediction: ${result[0].className}\n
       probability: ${result[0].probability}
     `;
-    status(${result[0].className})
+    // status(`${result[0].className}`)
     // Dispose the tensor to release the memory.
     img.dispose();
 
