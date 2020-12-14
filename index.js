@@ -212,8 +212,8 @@ const webcam = await tf.data.webcam(webcamElement);
 model.predict(tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3])).dispose();
 
 while (true) {
-    let img = await webcam.capture();
-    webcamElement.src = img.toDataURL("image/jpg")
+    // let img = await webcam.capture();
+    // webcamElement.src = img.toDataURL("image/jpg")
     const imgPixels = tf.browser.fromPixels(webcamElement).toFloat();
     const normalized = imgPixels.div(255.0);
 
