@@ -30,13 +30,21 @@
         color:white;
     }
 
+    h2 {
+        text-align: center;
+    }
+
+    .webcamVideo {
+        text-align: center;
+    }
+
 </style>
 
 <body>
 <div class="tfjs-example-container">
 
 
-    <div class="overlay">
+    <div class="overlay" id="overlay-container">
         <h2>Please put on your mask to proceed</h2>
         <div class="webcamVideo">
             <video id="video" width="192" height="192" autoplay></video>
@@ -47,34 +55,39 @@
 
     <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
 
-    <div id="console"></div>
+    <div id="main-app" style="display: none;">
+        <h1>Thanks for wearing your mask!</h1>
 
-    <section>
-        <p class='section-head'>Description</p>
-        <p>
-            This file is based on
-        <ul>
-            <li>
-                <a>https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab/index.html#5</a>
-            </li>
-            <li><a>https://github.com/tensorflow/tfjs-examples/tree/master/mobilenet</a></li>
-        </ul>
+        <div id="console"></div>
 
-        </p>
-    </section>
+        <section>
+            <p class='section-head'>Description</p>
+            <p>
+                This file is based on
+            <ul>
+                <li>
+                    <a>https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab/index.html#5</a>
+                </li>
+                <li><a>https://github.com/tensorflow/tfjs-examples/tree/master/mobilenet</a></li>
+            </ul>
 
-    <section>
-        <p class='section-head'>Status</p>
-        <div id="status"></div>
-    </section>
+            </p>
+        </section>
 
-    <section>
-        <p class='section-head'>Model Output</p>
+        <section>
+            <p class='section-head'>Status</p>
+            <div id="status"></div>
+        </section>
 
-        <div id="predictions"></div>
-        <p>Image being used for prediction</p>
-        <img id="imageInput" src="cat.jpg" width=192 height=192/>
-    </section>
+        <section>
+            <p class='section-head'>Model Output</p>
+
+            <div id="predictions"></div>
+            <p>Image being used for prediction</p>
+            <img id="imageInput" src="cat.jpg" width=192 height=192/>
+        </section>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="index.js"></script>

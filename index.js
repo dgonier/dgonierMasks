@@ -18,6 +18,9 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 const IMAGE_SIZE = 192;
 
+const overlay = document.getElementById('overlay-container')
+const mainApp = document.getElementById('main-app')
+
 const loadModel = async () => {
   const model = await tf.loadLayersModel('./model.json');
   const webcamElement = document.getElementById('video');
@@ -42,12 +45,14 @@ const loadModel = async () => {
 
     // Reshape to a single-element batch so we can pass it to predict.
     const batched = normalized.reshape([1, IMAGE_SIZE, IMAGE_SIZE, 3]);
-    console.log(batched.dataSync())
+    // console.log(batched.dataSync())
     const result = await model.predict(batched);
     const probs = result.dataSync()
 
     if (probs[0] > 0.95) {
       noMask = false
+      overlay.style.display = "none"
+      mainApp.style.display = "block"
     }
     // console.log(result)
     // console.log(result.dataSync())
