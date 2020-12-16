@@ -18,34 +18,34 @@
         vertical-align: top;
     }
 
-    .row {
-        display: table-row;
+    .overlay {
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        background-color:rgba(0, 0, 0, 0.85);
+        background: url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuNUmK/OAAAAATSURBVBhXY2RgYNgHxGAAYuwDAA78AjwwRoQYAAAAAElFTkSuQmCC) repeat scroll transparent\9; /* ie fallback png background image */
+        z-index:9999;
+        color:white;
     }
 
-    .cell {
-        display: table-cell;
-        padding-right: 20px;
-    }
-
-    #file-container {
-        margin-bottom: 20px;
-    }
 </style>
 
 <body>
 <div class="tfjs-example-container">
 
-    <div>
-        <video id="video" width="192" height="192" autoplay></video>
+    <div class="overlay">
+        <div class="webcamVideo">
+            <video id="video" width="192" height="192" autoplay></video>
+        </div>
     </div>
 
-    <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+
+
+    <canvas id="canvas" width="192" height="192" style="display:none;"></canvas>
 
     <div id="console"></div>
-
-    <section class='title-area'>
-        <h1>TensorFlow.js: Using a Keras model in the browser</h1>
-    </section>
 
     <section>
         <p class='section-head'>Description</p>
@@ -68,10 +68,6 @@
 
     <section>
         <p class='section-head'>Model Output</p>
-
-        <div id="file-container" style="display: none">
-            Upload an image: <input type="file" id="files" name="files[]" multiple/>
-        </div>
 
         <div id="predictions"></div>
         <p>Image being used for prediction</p>
