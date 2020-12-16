@@ -39,7 +39,7 @@ const loadModel = async () => {
 
     // Reshape to a single-element batch so we can pass it to predict.
     const batched = normalized.reshape([1, IMAGE_SIZE, IMAGE_SIZE, 3]);
-    console.log(batched.dataSync())
+    // console.log(batched.dataSync())
     const result = await model.predict(batched);
     const probs = result.dataSync()
 
