@@ -57,6 +57,7 @@ const loadModel = async () => {
     // console.log(result)
     // console.log(result.dataSync())
     let maskWearProb = Math.round(probs[0]*100)
+    
     document.getElementById('console').innerText = `
       ${maskWearProb}% prediction of wearing mask.
     `
