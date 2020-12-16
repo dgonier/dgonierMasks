@@ -49,16 +49,16 @@ const loadModel = async () => {
     const result = await model.predict(batched);
     const probs = result.dataSync()
 
-    if (probs[0] > 0.95) {
+    if (probs[0] > 0.90) {
       noMask = false
       overlay.style.display = "none"
       mainApp.style.display = "block"
     }
     // console.log(result)
     // console.log(result.dataSync())
-
+    let maskWearProb = Math.round(probs[0]*100)
     document.getElementById('console').innerText = `
-      ${probs[0]}% of wearing mask
+      ${maskWearProb}% prediction of wearing mask.
     `
 
     // document.getElementById('console').innerText = `
