@@ -1,7 +1,7 @@
 <!doctype html>
 
 <head>
-    <title>Your title</title>
+    <title>Mask Gatekeeper</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -64,14 +64,35 @@
         <section>
             <p class='section-head'>Description</p>
             <p>
-                This file is based on
+                Thanks for testing out the mask model gatekeeper app! My hope is to eventually integrate this into a
+                react-native module!
+            </p>
+            <p>
+                Some notes about data sourcing:
             <ul>
                 <li>
-                    <a>https://codelabs.developers.google.com/codelabs/tensorflowjs-teachablemachine-codelab/index.html#5</a>
-                </li>
-                <li><a>https://github.com/tensorflow/tfjs-examples/tree/master/mobilenet</a></li>
-            </ul>
+                    The real masked dataset was created by a Chinese institution and included mostly Asian people. As a
+                    result, Asian faces may be a bias factor. Artificially generated masked data did not include this
+                    bias
 
+                </li>
+                <li>
+                    Head positioning was a concern, as direct facing was more common than profile or other views. This
+                    was addressed by adding a dataset of various head angles. However, various head angles with masks
+                    was not achievable.
+
+                </li>
+                <li>
+                    Mask patterns also present a problem. In many of the mask images only a single type of mask is used
+                    (medical). This can confuse the model when predicting on patterned masks.
+
+                </li>
+                <li>
+                    Improper Mask Data sourcing proved to be very challenging. Originally it appeared the Mask-Face-Net
+                    data source would have a good source for artificially created improper mask wearing, but ultimately
+                    the distortions were not helpful and often rightfully confused with proper mask wearing.
+                </li>
+            </ul>
             </p>
         </section>
 
@@ -85,7 +106,7 @@
 
             <div id="predictions"></div>
             <p>Image being used for prediction</p>
-            <img id="imageInput" src="cat.jpg" width=192 height=192/>
+            <img id="imageInput" src="mask_default_image.jpg" width=192 height=192/>
         </section>
     </div>
 
