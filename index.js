@@ -53,9 +53,9 @@ const loadModel = async () => {
     let maskImproperWear = Math.round(probs[2]* 100)
     
     document.getElementById('console').innerText = `
-      ${maskWearProb}% prediction of wearing mask.<br>
-      ${maskNotWearProb}% prediction of not wearing mask.<br>
-      ${maskImproperWear}% prediction of wearing mask improperly.<br>
+      ${maskWearProb}% prediction of wearing mask.
+      ${maskNotWearProb}% prediction of not wearing mask.
+      ${maskImproperWear}% prediction of wearing mask improperly.
     `
     await sleep(1000);
   }
