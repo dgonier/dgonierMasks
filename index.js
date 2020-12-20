@@ -1,7 +1,6 @@
 let CLASSES = {
   0: 'Wearing Mask',
   1: 'Not Wearing Mask',
-  2: 'Improperly Wearing a Mask'
 };
 
 
@@ -50,12 +49,11 @@ const loadModel = async () => {
     }
     let maskWearProb = Math.round(probs[0]*100)
     let maskNotWearProb = Math.round(probs[1]* 100)
-    let maskImproperWear = Math.round(probs[2]* 100)
+    // let maskImproperWear = Math.round(probs[2]* 100)
     
     document.getElementById('console').innerText = `
       ${maskWearProb}% prediction of wearing mask.
       ${maskNotWearProb}% prediction of not wearing mask.
-      ${maskImproperWear}% prediction of wearing mask improperly.
     `
     await sleep(1000);
   }
