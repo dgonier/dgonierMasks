@@ -42,7 +42,7 @@ const loadModel = async () => {
     const result = await model.predict(batched);
     const probs = result.dataSync()
 
-    if (probs[0] > 0.7) {
+    if (probs[0] > 0.85) {
       noMask = false
       overlay.style.display = "none"
       mainApp.style.display = "block"
